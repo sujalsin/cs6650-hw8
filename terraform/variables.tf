@@ -61,4 +61,12 @@ variable "database_password" {
   type        = string
   description = "Master password for RDS"
   sensitive   = true
+  default     = "TempPassword123!" # Default password (change for production)
+}
+
+# Database type selection
+variable "database_type" {
+  type        = string
+  description = "Database type: 'mysql' or 'dynamodb'"
+  default     = "mysql"
 }

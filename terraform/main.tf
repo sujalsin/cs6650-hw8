@@ -38,6 +38,11 @@ module "rds" {
   database_password      = var.database_password
 }
 
+# DynamoDB Table for Shopping Carts
+module "dynamodb" {
+  source       = "./modules/dynamodb"
+  service_name = var.service_name
+}
 
 # Reuse an existing IAM role for ECS tasks
 data "aws_iam_role" "lab_role" {
@@ -70,6 +75,10 @@ module "ecs" {
   db_name     = module.rds.db_name
   db_username = var.database_username
   db_password = var.database_password
+
+  # DynamoDB configuration
+  database_type = var.database_type
+  aws_region    = var.aws_region
 }
 
 

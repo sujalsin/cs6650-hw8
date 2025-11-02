@@ -111,3 +111,16 @@ variable "max_capacity" {
   default     = 10
   description = "Maximum number of tasks"
 }
+
+# DynamoDB configuration
+variable "database_type" {
+  type        = string
+  description = "Database type: 'mysql' or 'dynamodb'"
+  default     = "mysql"
+}
+
+variable "aws_region" {
+  type        = string
+  description = "AWS region for DynamoDB client"
+  default     = "us-west-2"
+}

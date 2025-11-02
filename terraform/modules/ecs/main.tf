@@ -43,6 +43,18 @@ resource "aws_ecs_task_definition" "this" {
       {
         name  = "DB_PASSWORD"
         value = var.db_password
+      },
+      {
+        name  = "DATABASE_TYPE"
+        value = var.database_type
+      },
+      {
+        name  = "AWS_REGION"
+        value = var.aws_region
+      },
+      {
+        name  = "SERVICE_NAME"
+        value = var.service_name
       }
     ]
     
